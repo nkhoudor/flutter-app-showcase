@@ -11,7 +11,7 @@ class AppInitPresentationModel implements AppInitViewModel {
     // ignore: avoid_unused_constructor_parameters
     AppInitInitialParams initialParams,
   )   : appInitResult = const FutureResult.empty(),
-        user = const User.anonymous();
+        user = const User.empty();
 
   /// Used for the copyWith method
   AppInitPresentationModel._({

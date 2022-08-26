@@ -15,7 +15,7 @@ String packageFromUri(String? uri) {
   }
 }
 
-/// List of fields that should be part of props list for [Equatable] class
+/// List of fields that should be part of props list for Equatable class
 extension ClassElementExtensions on ClassElement {
   Iterable<FieldElement> get equatableFields =>
       fields.where((field) => !field.isStatic && !field.isAbstract && (field.getter?.isSynthetic ?? false));

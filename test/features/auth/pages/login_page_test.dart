@@ -6,8 +6,8 @@ import 'package:flutter_demo/features/auth/login/login_presentation_model.dart';
 import 'package:flutter_demo/features/auth/login/login_presenter.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../mocks/mocks.dart';
 import '../../../test_utils/golden_tests_utils.dart';
+import '../mocks/auth_mocks.dart';
 
 Future<void> main() async {
   late LoginPage page;
@@ -21,10 +21,11 @@ Future<void> main() async {
     model = LoginPresentationModel.initial(
       initParams,
     );
-    navigator = LoginNavigator(Mocks.appNavigator);
+    navigator = LoginNavigator();
     presenter = LoginPresenter(
       model,
       navigator,
+      AuthMocks.logInUseCase,
     );
     page = LoginPage(presenter: presenter);
   }

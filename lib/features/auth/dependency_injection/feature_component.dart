@@ -59,7 +59,7 @@ void _configureMvp() {
   // ignore: unnecessary_statements
   getIt
         ..registerFactory<LoginNavigator>(
-          () => LoginNavigator(getIt()),
+          () => LoginNavigator(),
         )
         ..registerFactoryParam<LoginPresentationModel, LoginInitialParams, dynamic>(
           (params, _) => LoginPresentationModel.initial(params),
@@ -67,6 +67,7 @@ void _configureMvp() {
         ..registerFactoryParam<LoginPresenter, LoginInitialParams, dynamic>(
           (initialParams, _) => LoginPresenter(
             getIt(param1: initialParams),
+            getIt(),
             getIt(),
           ),
         )

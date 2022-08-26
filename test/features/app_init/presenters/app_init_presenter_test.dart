@@ -24,9 +24,10 @@ void main() {
       // GIVEN
       whenListen(
         Mocks.userStore,
-        Stream.fromIterable([const User.anonymous()]),
+        Stream.fromIterable([const User.empty()]),
       );
       when(() => AppInitMocks.appInitUseCase.execute()).thenAnswer((_) => successFuture(unit));
+      when(() => navigator.openLogin(any())).thenAnswer((_) => Future.value());
 
       // WHEN
       await presenter.onInit();
@@ -42,7 +43,7 @@ void main() {
       // GIVEN
       whenListen(
         Mocks.userStore,
-        Stream.fromIterable([const User.anonymous()]),
+        Stream.fromIterable([const User.empty()]),
       );
       when(() => AppInitMocks.appInitUseCase.execute()).thenAnswer((_) => failFuture(const AppInitFailure.unknown()));
       when(() => navigator.showError(any())).thenAnswer((_) => Future.value());

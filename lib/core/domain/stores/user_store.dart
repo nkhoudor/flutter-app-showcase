@@ -1,8 +1,8 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:bloc/bloc.dart';
 import 'package:flutter_demo/core/domain/model/user.dart';
 
 class UserStore extends Cubit<User> {
-  UserStore({User? user}) : super(user ?? const User.anonymous());
+  UserStore({User? user}) : super(user ?? const User.empty());
 
   User get user => state;
 

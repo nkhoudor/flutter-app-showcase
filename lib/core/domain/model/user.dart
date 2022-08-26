@@ -6,7 +6,7 @@ class User extends Equatable {
     required this.username,
   });
 
-  const User.anonymous()
+  const User.empty()
       : id = '',
         username = '';
 
@@ -18,4 +18,9 @@ class User extends Equatable {
         id,
         username,
       ];
+
+  User copyWith({String? id, String? username}) => User(
+        id: id ?? this.id,
+        username: username ?? this.username,
+      );
 }
